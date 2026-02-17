@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Card from './card'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetch } from '../api/postapi'
+import { fetch } from '../api/postApi'
 import { fetchPosts } from '../redux/features/postSlice'
 import { motion } from 'framer-motion'
 const feed = () => {
