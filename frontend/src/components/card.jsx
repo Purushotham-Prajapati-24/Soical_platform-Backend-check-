@@ -1,18 +1,29 @@
 import React from 'react'
 
-const card = (elem) => {
+const card = ({ elem }) => {
   return (
-    <div className=' w-full sm:w-[48%] lg:w-[23%] md:h-[50vh] rounded-lg overflow-hidden bg-gray-900'>
-        <h1 className='font-bold text-xl  text-white text-center py-2'>{elem.elem.title}</h1>
-        <div className='h-[35vh]'><img src={elem.elem.image} alt="" className='h-full w-full object-center object-cover' /></div>
-            
-        <div className=' bg-gray-800 py-3'>
-            <div className='flex gap-2 justify-between mx-4 '>
-            <button className='bg-red-600 px-4 py-1 rounded-md  active:scale-95 text-gray-200'>Like</button>
-            <button className='bg-orange-600 px-4 py-1 rounded-md  active:scale-95 text-gray-200'>Comment</button>
-            <button className='bg-gray-700 px-4 py-1 rounded-md  active:scale-95 text-gray-200'>Share</button>
-            </div>
-        </div>      
+    <div className='group relative bg-gray-900/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/5 hover:border-orange-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-900/10 hover:-translate-y-1 h-full flex flex-col'>
+      <div className='relative aspect-square overflow-hidden'>
+        <img
+          src={elem.image}
+          alt={elem.title}
+          className='h-full w-full object-cover transition-transform duration-700 group-hover:scale-110'
+        />
+        <div className='absolute inset-0 bg-linear-to-t from-gray-900 via-transparent to-transparent opacity-60' />
+      </div>
+
+      <div className='p-5 flex flex-col flex-1'>
+        <h2 className='text-xl font-bold text-white mb-2 line-clamp-1 group-hover:text-orange-400 transition-colors'>{elem.title}</h2>
+
+        <div className='mt-auto pt-4 flex gap-2 w-full'>
+          <button className='flex-1 bg-white/5 hover:bg-white/10 text-gray-300 py-2 rounded-xl text-sm font-medium transition-colors flex items-center justify-center gap-1 group/btn'>
+            <span>❤️</span> <span className='group-hover/btn:text-red-400 transition-colors'>Like</span>
+          </button>
+          <button className='flex-1 bg-white/5 hover:bg-white/10 text-gray-300 py-2 rounded-xl text-sm font-medium transition-colors'>
+            Comment
+          </button>
+        </div>
+      </div>
     </div>
   )
 }
