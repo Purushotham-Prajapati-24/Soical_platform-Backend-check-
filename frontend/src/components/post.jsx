@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { addPost } from '../api/postapi'
+import { addPost } from '../api/postApi'
 const post = () => {
     const [title, setTitle] = useState('');
     const [image, setImage] = useState(null);
@@ -23,7 +23,7 @@ const post = () => {
             setLoading(false);
         }
     }
-    
+
     if (submitted) {
         return (
             <div className='min-h-screen flex flex-col items-center justify-center bg-gray-950 px-4'>
