@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/post";
+const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? "/api/post" : "http://localhost:3000/api/post");
 
 export const fetch = async () => {
     const response = await axios.get(API_URL);

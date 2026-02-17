@@ -10,33 +10,33 @@ app.use(cors());
 app.use(express.json());
 
 const upload = multer({
-    storage:multer.memoryStorage()
+    storage: multer.memoryStorage()
 })
 
 
-app.post('/post',upload.single("image"), async(req,res)=>{
-    
-    if(!req.file){
+app.post('/api/post', upload.single("image"), async (req, res) => {
+
+    if (!req.file) {
         return res.status(400).send({
-            message:"No image uploaded"
+            message: "No image uploaded"
         })
     }
     const data = req.file;
     const result = await uploadFile(data.buffer);
     const post = new Post({
-        title : req.body.title,
-        image : result.url
+        title: req.body.title,
+        image: result.url
     })
     await post.save();
     res.send(post);
 })
 
-app.get('/post',async(req,res)=>{
+app.get('/api/post', async (req, res) => {
     const data = await Post.find();
     res.send(data);
 })
 
-app.get('/',(req,res)=>{
+app.get('/api/', (req, res) => {
     res.send("Hello World")
 })
 

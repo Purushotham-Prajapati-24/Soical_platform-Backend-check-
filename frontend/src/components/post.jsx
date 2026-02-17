@@ -23,7 +23,7 @@ const post = () => {
             setLoading(false);
         }
     }
-
+    
     if (submitted) {
         return (
             <div className='min-h-screen flex flex-col items-center justify-center bg-gray-950 px-4'>
