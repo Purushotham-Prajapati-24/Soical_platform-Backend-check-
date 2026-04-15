@@ -23,7 +23,7 @@
       "dest": "/frontend/$1"
     },
     {
-      "handle":"filehandle"
+      "handle":"filesystem"
     },
     {
       "src": "/(.*)",
